@@ -5,8 +5,6 @@ const puppeteer = require('puppeteer-extra')
 const mysql = require("mysql2/promise");
 const chromium = require('chrome-aws-lambda');
 const fs = require("fs");
-
-const PCR = require("puppeteer-chromium-resolver");
 const options = {};
 
 const url =
