@@ -15,6 +15,13 @@ const DB_DATABASE = process.env.DB_DATABASE;
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
+const connection = await mysql.createConnection({
+    host: DB_HOST,
+    user: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: DB_DATABASE,
+});
+
 const linksAmazon = async (res) => {
     
     try {
@@ -42,12 +49,7 @@ const linksAmazon = async (res) => {
         await page.waitForSelector("#signInSubmit");
         await page.click("#signInSubmit");
     
-        const connection = await mysql.createConnection({
-            host: DB_HOST,
-            user: DB_USERNAME,
-            password: DB_PASSWORD,
-            database: DB_DATABASE,
-        });
+        
     
         connection.connect();
         let lastId = data.lastID;
