@@ -27,7 +27,7 @@ const linksAmazon = async (res) => {
     try {
         const browser = await puppeteer.launch({
             args: chromium.args,//[...chromium.args, '--hide-scrollbars', '--disable-web-security'],
-            executablePath: await chromium.executablePath,
+            executablePath: process.env.CHROME_PATH || await chromium.executablePath,
             headless: true,
             ignoreDefaultArgs: ['--disable-extensions'],
         });
