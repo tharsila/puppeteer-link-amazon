@@ -1,6 +1,7 @@
 require("dotenv").config();
 const data = require("./data.json");
-const puppeteer = require('puppeteer-core');
+//const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer-extra')
 const mysql = require("mysql2/promise");
 const chromium = require('chrome-aws-lambda');
 const fs = require("fs");
@@ -28,10 +29,10 @@ const linksAmazon = async (res) => {
     });
     
     try {
-        const stats = await PCR(options);
-        const browser = await stats.puppeteer.launch({
+       
+        const browser = await puppeteer.launch({
             args:[...chromium.args, '--hide-scrollbars', '--disable-web-security'],
-            executablePath: stats.executablePath,
+            executablePath: puppeteer.executablePath(),
             headless: true,
             ignoreDefaultArgs: ['--disable-extensions'],
         });
