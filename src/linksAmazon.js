@@ -1,7 +1,7 @@
 require("dotenv").config();
 const data = require("./data.json");
-//const puppeteer = require('puppeteer-core');
-const puppeteer = require('puppeteer-extra')
+const puppeteer = require('puppeteer');
+//const puppeteer = require('puppeteer-extra')
 const mysql = require("mysql2/promise");
 const chromium = require('chrome-aws-lambda');
 const fs = require("fs");
